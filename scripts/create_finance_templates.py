@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create minimal XLSX finance registers using only the Python standard library."""
+"""Create the XLSX register used for payments by apartment."""
 
 import argparse
 from pathlib import Path
@@ -173,25 +173,5 @@ def main() -> None:
         [12, 24, 24, 18, 18, 16, 16, 20, 15, 18, 18, 20, 34, 34],
         force=args.force,
     )
-    create_workbook(
-        ROOT / "finance" / "expenses.xlsx",
-        [
-            "Дата",
-            "Категория",
-            "Поставщик",
-            "Описание",
-            "Описание, иврит",
-            "Сумма, ILS",
-            "НДС, ILS",
-            "Способ оплаты",
-            "Документ",
-            "Статус проверки",
-            "Комментарий",
-        ],
-        [15, 20, 24, 34, 34, 16, 14, 18, 34, 20, 34],
-        force=args.force,
-    )
-
-
 if __name__ == "__main__":
     main()

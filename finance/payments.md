@@ -72,8 +72,8 @@
 `documents/payments/2026-07-apartment-15-vaad-fee.pdf`
 
 Счета и квитанции поставщиков не смешивать с оплатами жильцов: для них
-используются `documents/invoices/`, `documents/receipts/` и
-`finance/expenses.xlsx`.
+используются `documents/invoices/`, `documents/receipts/` и месячные файлы
+`finance/expenses/YYYY-MM.md`.
 
 ## Правила
 
