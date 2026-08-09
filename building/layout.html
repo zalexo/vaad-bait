@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Схема квартир дома</title>
+  <style>
+    :root { --ink:#17324a; --muted:#60778b; --line:#c7d3dc; --front:#dcecf7; --front-stroke:#2d6f9f; --back:#e2f0e5; --back-stroke:#37744b; --ground:#f6f1e7; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#f5f7f8; color:var(--ink); font-family:Arial, sans-serif; }
+    main { max-width:1240px; margin:24px auto; padding:28px; background:#fff; border:1px solid var(--line); border-radius:14px; }
+    h1 { margin:0; font-size:28px; }
+    p { margin:8px 0 22px; color:var(--muted); line-height:1.45; }
+    svg { width:100%; height:auto; display:block; }
+    .title { fill:var(--ink); font-size:20px; font-weight:700; text-anchor:middle; }
+    .sub { fill:var(--muted); font-size:13px; text-anchor:middle; }
+    .level { fill:var(--muted); font-size:12px; text-anchor:end; }
+    .apt { fill:var(--ink); font-size:22px; font-weight:700; text-anchor:middle; dominant-baseline:middle; }
+    .side { fill:var(--muted); font-size:12px; text-anchor:middle; }
+    .note { fill:var(--muted); font-size:13px; }
+    .front { fill:var(--front); stroke:var(--front-stroke); stroke-width:2; }
+    .back { fill:var(--back); stroke:var(--back-stroke); stroke-width:2; }
+    .floor { stroke:var(--line); stroke-width:1.5; stroke-dasharray:4 5; }
+    .ground { fill:var(--ground); stroke:#d4c7ad; stroke-width:1.5; }
+    .badge { fill:#fff; stroke:#b6c5cf; stroke-width:1.5; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Схема расположения квартир</h1>
+    <p>Передняя часть дома — квартиры 1–8. Часть, обращённая к распадку, — квартиры 9–20 и расположена на пол-этажа выше.</p>
+    <svg viewBox="0 0 1160 790" role="img" aria-labelledby="title desc">
+      <title id="title">Схема передней и задней частей дома</title>
+      <desc id="desc">Передняя часть с квартирами 1–8 расположена ниже задней части с квартирами 9–20 на пол этажа.</desc>
+
+      <text x="420" y="44" class="title">Фронтальная часть</text>
+      <text x="420" y="66" class="sub">квартиры 1–8</text>
+      <text x="835" y="44" class="title">Часть к распадку</text>
+      <text x="835" y="66" class="sub">квартиры 9–20 · на ½ этажа выше</text>
+
+      <text x="342" y="94" class="side">слева</text><text x="498" y="94" class="side">справа</text>
+      <text x="757" y="94" class="side">слева</text><text x="913" y="94" class="side">справа</text>
+
+      <line x1="160" y1="704" x2="1035" y2="704" class="floor"/>
+      <line x1="160" y1="594" x2="1035" y2="594" class="floor"/>
+      <line x1="160" y1="484" x2="1035" y2="484" class="floor"/>
+      <line x1="160" y1="374" x2="1035" y2="374" class="floor"/>
+      <line x1="160" y1="264" x2="1035" y2="264" class="floor"/>
+      <line x1="160" y1="154" x2="1035" y2="154" class="floor"/>
+
+      <text x="142" y="708" class="level">0</text><text x="142" y="598" class="level">1</text>
+      <text x="142" y="488" class="level">2</text><text x="142" y="378" class="level">3</text>
+      <text x="142" y="268" class="level">4</text><text x="142" y="158" class="level">5</text>
+      <text x="86" y="429" class="note" transform="rotate(-90 86 429)">относительная высота этажей</text>
+
+      <!-- Front: whole-floor levels 0–3. -->
+      <rect x="270" y="614" width="145" height="74" rx="8" class="front"/><rect x="425" y="614" width="145" height="74" rx="8" class="front"/>
+      <text x="342" y="651" class="apt">1</text><text x="498" y="651" class="apt">2</text>
+      <rect x="270" y="504" width="145" height="74" rx="8" class="front"/><rect x="425" y="504" width="145" height="74" rx="8" class="front"/>
+      <text x="342" y="541" class="apt">3</text><text x="498" y="541" class="apt">4</text>
+      <rect x="270" y="394" width="145" height="74" rx="8" class="front"/><rect x="425" y="394" width="145" height="74" rx="8" class="front"/>
+      <text x="342" y="431" class="apt">5</text><text x="498" y="431" class="apt">6</text>
+      <rect x="270" y="284" width="145" height="74" rx="8" class="front"/><rect x="425" y="284" width="145" height="74" rx="8" class="front"/>
+      <text x="342" y="321" class="apt">7</text><text x="498" y="321" class="apt">8</text>
+
+      <!-- Back: half-level offset above the front. -->
+      <rect x="685" y="559" width="145" height="74" rx="8" class="back"/><rect x="840" y="559" width="145" height="74" rx="8" class="back"/>
+      <text x="757" y="596" class="apt">9</text><text x="913" y="596" class="apt">10</text>
+      <rect x="685" y="449" width="145" height="74" rx="8" class="back"/><rect x="840" y="449" width="145" height="74" rx="8" class="back"/>
+      <text x="757" y="486" class="apt">11</text><text x="913" y="486" class="apt">12</text>
+      <rect x="685" y="339" width="145" height="74" rx="8" class="back"/><rect x="840" y="339" width="145" height="74" rx="8" class="back"/>
+      <text x="757" y="376" class="apt">13</text><text x="913" y="376" class="apt">14</text>
+      <rect x="685" y="229" width="145" height="74" rx="8" class="back"/><rect x="840" y="229" width="145" height="74" rx="8" class="back"/>
+      <text x="757" y="266" class="apt">15</text><text x="913" y="266" class="apt">16</text>
+      <rect x="685" y="119" width="145" height="74" rx="8" class="back"/><rect x="840" y="119" width="145" height="74" rx="8" class="back"/>
+      <text x="757" y="156" class="apt">17</text><text x="913" y="156" class="apt">18</text>
+      <rect x="685" y="79" width="145" height="30" rx="8" class="back"/><rect x="840" y="79" width="145" height="30" rx="8" class="back"/>
+      <text x="757" y="94" class="apt" style="font-size:16px">19</text><text x="913" y="94" class="apt" style="font-size:16px">20</text>
+
+      <rect x="245" y="720" width="760" height="45" rx="8" class="ground"/>
+      <text x="625" y="748" class="note" text-anchor="middle">Улица / нижний уровень фронтальной части</text>
+      <rect x="42" y="735" width="163" height="30" rx="15" class="badge"/>
+      <text x="123" y="755" class="note" text-anchor="middle">подтверждено: 1/2 и 15/16</text>
+    </svg>
+  </main>
+</body>
+</html>
