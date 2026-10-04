@@ -28,10 +28,10 @@
 <body>
   <main>
     <h1>Схема расположения квартир</h1>
-    <p>Передняя часть дома — квартиры 1–8. Часть, обращённая к распадку, — квартиры 9–20 и расположена на пол-этажа выше.</p>
-    <svg viewBox="0 0 1160 790" role="img" aria-labelledby="title desc">
+    <p>Передняя часть дома — квартиры 1–8, поднята на два этажа. Часть, обращённая к распадку, — квартиры 9–20.</p>
+    <svg viewBox="0 0 1160 890" role="img" aria-labelledby="title desc">
       <title id="title">Схема передней и задней частей дома</title>
-      <desc id="desc">Передняя часть с квартирами 1–8 расположена ниже задней части с квартирами 9–20 на пол этажа.</desc>
+      <desc id="desc">Фронтальная часть с квартирами 1–8 поднята на два этажа относительно исходной схемы.</desc>
 
       <text x="420" y="44" class="title">Фронтальная часть</text>
       <text x="420" y="66" class="sub">квартиры 1–8</text>
@@ -41,6 +41,7 @@
       <text x="342" y="94" class="side">слева</text><text x="498" y="94" class="side">справа</text>
       <text x="757" y="94" class="side">слева</text><text x="913" y="94" class="side">справа</text>
 
+      <g transform="translate(0 100)">
       <line x1="160" y1="704" x2="1035" y2="704" class="floor"/>
       <line x1="160" y1="594" x2="1035" y2="594" class="floor"/>
       <line x1="160" y1="484" x2="1035" y2="484" class="floor"/>
@@ -53,34 +54,65 @@
       <text x="142" y="268" class="level">4</text><text x="142" y="158" class="level">5</text>
       <text x="86" y="429" class="note" transform="rotate(-90 86 429)">относительная высота этажей</text>
 
-      <!-- Front: whole-floor levels 0–3. -->
-      <rect x="270" y="614" width="145" height="74" rx="8" class="front"/><rect x="425" y="614" width="145" height="74" rx="8" class="front"/>
-      <text x="342" y="651" class="apt">1</text><text x="498" y="651" class="apt">2</text>
-      <rect x="270" y="504" width="145" height="74" rx="8" class="front"/><rect x="425" y="504" width="145" height="74" rx="8" class="front"/>
-      <text x="342" y="541" class="apt">3</text><text x="498" y="541" class="apt">4</text>
-      <rect x="270" y="394" width="145" height="74" rx="8" class="front"/><rect x="425" y="394" width="145" height="74" rx="8" class="front"/>
-      <text x="342" y="431" class="apt">5</text><text x="498" y="431" class="apt">6</text>
-      <rect x="270" y="284" width="145" height="74" rx="8" class="front"/><rect x="425" y="284" width="145" height="74" rx="8" class="front"/>
-      <text x="342" y="321" class="apt">7</text><text x="498" y="321" class="apt">8</text>
+      <!-- Квартиры идут сверху файла по убыванию номеров; каждую пару можно двигать целиком. -->
+      <!-- Верхний ряд: 19–20, задняя часть. -->
+      <g id="apartments-19-20">
+        <rect x="685" y="9" width="145" height="74" rx="8" class="back"/><rect x="840" y="9" width="145" height="74" rx="8" class="back"/>
+        <text x="757" y="46" class="apt">19</text><text x="913" y="46" class="apt">20</text>
+      </g>
+      <!-- 17–18, задняя часть. -->
+      <g id="apartments-17-18">
+        <rect x="685" y="119" width="145" height="74" rx="8" class="back"/><rect x="840" y="119" width="145" height="74" rx="8" class="back"/>
+        <text x="757" y="156" class="apt">17</text><text x="913" y="156" class="apt">18</text>
+      </g>
+      <!-- 15–16, задняя часть. -->
+      <g id="apartments-15-16">
+        <rect x="685" y="229" width="145" height="74" rx="8" class="back"/><rect x="840" y="229" width="145" height="74" rx="8" class="back"/>
+        <text x="757" y="266" class="apt">15</text><text x="913" y="266" class="apt">16</text>
+      </g>
+      <!-- 13–14, задняя часть. -->
+      <g id="apartments-13-14">
+        <rect x="685" y="339" width="145" height="74" rx="8" class="back"/><rect x="840" y="339" width="145" height="74" rx="8" class="back"/>
+        <text x="757" y="376" class="apt">13</text><text x="913" y="376" class="apt">14</text>
+      </g>
 
-      <!-- Back: half-level offset above the front. -->
-      <rect x="685" y="559" width="145" height="74" rx="8" class="back"/><rect x="840" y="559" width="145" height="74" rx="8" class="back"/>
-      <text x="757" y="596" class="apt">9</text><text x="913" y="596" class="apt">10</text>
-      <rect x="685" y="449" width="145" height="74" rx="8" class="back"/><rect x="840" y="449" width="145" height="74" rx="8" class="back"/>
-      <text x="757" y="486" class="apt">11</text><text x="913" y="486" class="apt">12</text>
-      <rect x="685" y="339" width="145" height="74" rx="8" class="back"/><rect x="840" y="339" width="145" height="74" rx="8" class="back"/>
-      <text x="757" y="376" class="apt">13</text><text x="913" y="376" class="apt">14</text>
-      <rect x="685" y="229" width="145" height="74" rx="8" class="back"/><rect x="840" y="229" width="145" height="74" rx="8" class="back"/>
-      <text x="757" y="266" class="apt">15</text><text x="913" y="266" class="apt">16</text>
-      <rect x="685" y="119" width="145" height="74" rx="8" class="back"/><rect x="840" y="119" width="145" height="74" rx="8" class="back"/>
-      <text x="757" y="156" class="apt">17</text><text x="913" y="156" class="apt">18</text>
-      <rect x="685" y="79" width="145" height="30" rx="8" class="back"/><rect x="840" y="79" width="145" height="30" rx="8" class="back"/>
-      <text x="757" y="94" class="apt" style="font-size:16px">19</text><text x="913" y="94" class="apt" style="font-size:16px">20</text>
+      <!-- 11–12, задняя часть: рядом с плашкой улицы. -->
+      <g id="apartments-11-12" transform="translate(0 45)">
+        <rect x="685" y="449" width="145" height="74" rx="8" class="back"/><rect x="840" y="449" width="145" height="74" rx="8" class="back"/>
+        <text x="757" y="486" class="apt">11</text><text x="913" y="486" class="apt">12</text>
+      </g>
 
-      <rect x="245" y="720" width="760" height="45" rx="8" class="ground"/>
-      <text x="625" y="748" class="note" text-anchor="middle">Улица / нижний уровень фронтальной части</text>
-      <rect x="42" y="735" width="163" height="30" rx="15" class="badge"/>
-      <text x="123" y="755" class="note" text-anchor="middle">подтверждено: 1/2 и 15/16</text>
+      <!-- 9–10, задняя часть. -->
+      <g id="apartments-9-10">
+        <rect x="685" y="610" width="145" height="74" rx="8" class="back"/><rect x="840" y="610" width="145" height="74" rx="8" class="back"/>
+        <text x="757" y="640" class="apt">9</text><text x="913" y="640" class="apt">10</text>
+      </g>
+      <!-- 7–8, фронтальная часть. -->
+      <g id="apartments-7-8">
+        <rect x="270" y="64" width="145" height="74" rx="8" class="front"/><rect x="425" y="64" width="145" height="74" rx="8" class="front"/>
+        <text x="342" y="101" class="apt">7</text><text x="498" y="101" class="apt">8</text>
+      </g>
+      <!-- 5–6, фронтальная часть. -->
+      <g id="apartments-5-6">
+        <rect x="270" y="174" width="145" height="74" rx="8" class="front"/><rect x="425" y="174" width="145" height="74" rx="8" class="front"/>
+        <text x="342" y="211" class="apt">5</text><text x="498" y="211" class="apt">6</text>
+      </g>
+      <!-- 3–4, фронтальная часть. -->
+      <g id="apartments-3-4">
+        <rect x="270" y="284" width="145" height="74" rx="8" class="front"/><rect x="425" y="284" width="145" height="74" rx="8" class="front"/>
+        <text x="342" y="321" class="apt">3</text><text x="498" y="321" class="apt">4</text>
+      </g>
+      <!-- Нижний ряд: 1–2, фронтальная часть. -->
+      <g id="apartments-1-2" transform="translate(0 -24)">
+        <rect x="270" y="394" width="145" height="74" rx="8" class="front"/><rect x="425" y="394" width="145" height="74" rx="8" class="front"/>
+        <text x="342" y="431" class="apt">1</text><text x="498" y="431" class="apt">2</text>
+      </g>
+
+      <rect id="street-level" x="245" y="458" width="760" height="22" rx="8" class="ground"/>
+      <text x="625" y="473" class="note" text-anchor="middle">Улица / нижний уровень фронтальной части</text>
+      <rect x="42" y="454" width="163" height="30" rx="15" class="badge"/>
+      <text x="123" y="474" class="note" text-anchor="middle">подтверждено: 1/2 и 15/16</text>
+      </g>
     </svg>
   </main>
 </body>
