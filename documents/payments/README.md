@@ -5,10 +5,10 @@
 
 Файлы именуются:
 
-`YYYY-MM-DD-apartment-N-краткое-описание.ext`
+`apartment-NN-краткое-описание-YYYY-MM-DD-сумма.ext`
 
 Пример:
 
-`2026-07-01-apartment-15-vaad-fee.pdf`
+`apartment-15-vaad-fee-2026-07-01-100.pdf`
 
 Связанный путь указывается в `finance/payments.xlsx`.

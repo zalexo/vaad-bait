@@ -69,7 +69,7 @@
 
 В `payments.xlsx` указывать путь от корня репозитория, например:
 
-`documents/payments/2026-07-apartment-15-vaad-fee.pdf`
+`documents/payments/apartment-15-vaad-fee-2026-07-01-100.pdf`
 
 Счета и квитанции поставщиков не смешивать с оплатами жильцов: для них
 используются `documents/invoices/`, `documents/receipts/` и месячные файлы
