@@ -4,7 +4,7 @@ import Foundation
 // Local A4-landscape RTL expense-report renderer.
 // Usage: swift generate_expense_report.swift <month> <total> <created-date>
 //   <operations.tsv> <output.pdf>
-// TSV columns: date, category, supplier, Hebrew description, amount.
+// TSV columns: date, category, supplier, Hebrew description, amount, receipt (קיימת/אין).
 guard CommandLine.arguments.count == 6 else {
     fputs("Usage: generate_expense_report.swift <month> <total> <created-date> <operations.tsv> <output.pdf>\n", stderr)
     exit(2)
@@ -18,7 +18,7 @@ let operations = try String(contentsOf: operationsURL, encoding: .utf8)
     .split(whereSeparator: \.isNewline)
     .compactMap { line -> [String]? in
         let fields = line.split(separator: "\t", omittingEmptySubsequences: false).map(String.init)
-        return fields.count == 5 ? fields : nil
+        return fields.count == 6 ? fields : nil
     }
 guard !operations.isEmpty else { fatalError("No operations in TSV") }
 let page = CGRect(x: 0, y: 0, width: 842, height: 595)
@@ -91,7 +91,7 @@ for (title, width) in columns {
 for (operationIndex, operation) in operations.enumerated() {
     let rowY = headerY - CGFloat(operationIndex + 1) * rowH
     NSColor(calibratedRed: 0.99, green: 1, blue: 0.995, alpha: 1).setFill(); NSBezierPath(rect: CGRect(x: tableX, y: rowY, width: 758, height: rowH)).fill()
-    let row = ["₪ \(operation[4])", "", "קיימת", operation[3], operation[2], operation[1], operation[0], "\(operationIndex + 1)"]
+    let row = ["₪ \(operation[4])", "", operation[5], operation[3], operation[2], operation[1], operation[0], "\(operationIndex + 1)"]
     x = tableX
     for (index, (_, width)) in columns.enumerated() {
         if index == 1 {
@@ -106,7 +106,7 @@ for (operationIndex, operation) in operations.enumerated() {
 }
 
 rounded(CGRect(x: 42, y: 58, width: 758, height: 50), 7, pale)
-text("כל הסכומים מוצגים בשקלים חדשים. הקבלות שמורות אצל ועד הבית לצורכי מעקב ובקרה.", CGRect(x: 60, y: 76, width: 720, height: 18), attributes(12, soft))
+text("כל הסכומים מוצגים בשקלים חדשים. קבלות קיימות שמורות אצל ועד הבית לצורכי מעקב ובקרה.", CGRect(x: 60, y: 76, width: 720, height: 18), attributes(12, soft))
 text("נוצר בתאריך \(createdDate)", CGRect(x: 42, y: 24, width: 758, height: 16), attributes(10, soft))
 
 NSGraphicsContext.restoreGraphicsState(); pdf.endPDFPage(); pdf.closePDF()
